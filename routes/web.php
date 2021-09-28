@@ -33,4 +33,3 @@ Route::get('/about', function () {
         'profile' => "profile.jpeg"
     ]);
 });
-
