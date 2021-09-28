@@ -5,7 +5,7 @@
         <h1>This About page</h1>
         <h2>{{ $name }}</h2>
         <h5>{{ $email }}</h5>
-        <img src="/public/{{ $profile }}"></img>
+        <img src="/img/{{ $profile }}"></img>
     </article>
 @endsection
 

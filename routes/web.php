@@ -48,7 +48,7 @@ Route::get('/about', function () {
         'title' => "About",
         'name' => "Joko",
         'email' => "jokoding@gmail.com",
-        'profile' => "profile.jpg"
+        'profile' => "profile.jpeg"
     ]);
 });
 
