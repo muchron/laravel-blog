@@ -2,6 +2,7 @@
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +20,11 @@ Route::get('/', function () {
         'title' => "Home"
     ]);
 });
-Route::get('/blog', function () {
-    return view('blog',[
-        'title' => "Blog",
-        'post' => Post::all()
-    ]);
-});
+// Route::get('/blog', Controller);
+
+Route::get('/blog', [PostController::class, 'index']);
+Route::get('/blog/{slug}', [PostController::class, 'show']);
+
 Route::get('/about', function () {
     return view('about',[
         'title' => "About",
@@ -34,17 +34,3 @@ Route::get('/about', function () {
     ]);
 });
 
-
-$blog_new=[];
-Route::get('/blog/{slug}', function ($slug) {
-
-    foreach ($blog_post as $post) {
-        if ($post['slug'] === $slug ) {
-            $blog_new = $post;
-        }
-    }
-    return view('post',[
-        'title' => "Single Post",
-        'post' => Post::find()
-    ]);
-});

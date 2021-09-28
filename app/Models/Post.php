@@ -24,26 +24,17 @@ class Post
                 'author' => "Agustinus Septian",
                 'body' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dolorem excepturi similique hic cumque impedit tempore iste molestiae, a nesciunt architecto molestias quo! Laborum quae voluptas modi rerum eum et.",
             ]
-            ];
+        ];
 
     public static function all()
     {
-        return self::$blog_post;
+        return collect(self::$blog_post);
     }
 
     public static function find($slug)
     {
-        $post = [];
-        
-        $posts = self::$blog_post;
-
-        foreach ($posts as $p) {
-            if($post['slug'] == $slug){
-                $post = $p;
-            }
-        }
-
-        return $post;
+        $posts = static::all();
+        return $posts->firstWhere('slug', $slug);
 
     }
 }
