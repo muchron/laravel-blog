@@ -45,7 +45,10 @@ Route::get('/blog', function () {
 });
 Route::get('/about', function () {
     return view('about',[
-        'title' => "About"
+        'title' => "About",
+        'name' => "Joko",
+        'email' => "jokoding@gmail.com",
+        'profile' => "profile.jpg"
     ]);
 });
 
