@@ -24,7 +24,7 @@ Route::get('/', function () {
 // Route::get('/blog', Controller);
 
 Route::get('/blog', [PostController::class, 'index']);
-Route::get('/post/{id}', [PostController::class, 'show']);
+Route::get('/post/{slug}', [PostController::class, 'show']);
 Route::get('/categories/{category:slug}', function(Categories $category ){
     return view('category', [
         'title' => $category->name,
