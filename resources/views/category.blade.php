@@ -1,12 +1,15 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1>Categories Page</h1>
-    <article class="mt-2">
-        @foreach ($posts as $post)
+    <h1>Categories Page {{ $category }}</h1>
+    @foreach ($posts as $post)
+        <article class="mt-4 border-bottom pb-4">
             <h3><a href="/post/{{ $post->slug }}">{{ $post->title }}</a></h3>
-            <h5>{{ $post->author }}</h5>
-            <p>{{ $post->excerpt}}...</p>
-        @endforeach
-    </article> 
+            <p><a href="/user/{{ $post->user_id }}">{{ $post->user->name }}</a> on <a
+                    href="/categories/{{ $slug }}">{{ $category }}</a></p>
+            <p>{{ $post->excerpt }}...</p>
+            <a href="/post/{{ $post->slug }}">Read More</a>
+        </article>
+    @endforeach
+    <a href="/categories">More Categories</a>
 @endsection
