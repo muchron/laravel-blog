@@ -5,8 +5,8 @@
         @foreach ($categories as $category)
             <article>
                 <li>
-                    <h3><a href="/post/{{ $category->slug }}">{{ $category->name }}</a></h3>
-                    <p><a href="/categories/{{ $category->slug }}">Posts : {{ $category->post->count() }}</a></p>
+                    <h3><a href="/post/{{ $category->slug }}">{{ $category->name }}</a> <a
+                            href="/categories/{{ $category->slug }}">Posts : {{ $category->post->count() }}</a></h3>
                 </li>
             </article>
         @endforeach

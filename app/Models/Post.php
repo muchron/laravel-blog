@@ -11,6 +11,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $guard =['id'];
+    protected $with = ['user', 'category'];
 
     public function category()
     {
