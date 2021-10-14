@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'mobile-programming',
             ]
         );
-        User::factory(6)->create();
-        Post::factory(40)->create();
+        User::factory(5)->create();
+        Post::factory(100)->create();
     }
 }
