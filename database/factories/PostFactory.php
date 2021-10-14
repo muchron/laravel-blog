@@ -5,6 +5,8 @@ namespace Database\Factories;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+use function PHPSTORM_META\map;
+
 class PostFactory extends Factory
 {
     /**
@@ -22,12 +24,13 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'category_id'   => mt_rand(1,3),
-            'user_id'       => mt_rand(1,5),
-            'title'         => $this->faker->sentence(mt_rand(3,7)),
+            'category_id'   => mt_rand(4, 6),
+            'user_id'       => mt_rand(3, 5),
+            'title'         => $this->faker->sentence(mt_rand(3, 7)),
             'slug'          => $this->faker->slug(),
             'excerpt'       => $this->faker->paragraph(),
-            'body'          => $this->faker->paragraph(mt_rand(30,50))
+            'body'          => collect($this->faker->paragraphs(mt_rand(5, 10)))->map(fn ($p) => "<p>$p</p>")
+                ->implode('')
         ];
     }
 }

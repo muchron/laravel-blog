@@ -16,26 +16,43 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(5)->create();
-        Post::factory(10)->create();
-        
-        // Category::create(
-        //     [
-        //         'name' => 'Web Programing',
-        //         'slug' => 'web-programing',
-        //     ]
-        // );
-        // Category::create(
-        //     [
-        //         'name' => 'Programming',
-        //         'slug' => 'programming',
-        //     ]
-        // );
-        // Category::create(
-        //     [
-        //         'name' => 'Personal',
-        //         'slug' => 'personal',
-        //     ]
-        // );
+        Category::create(
+            [
+                'name' => 'Development and Operations',
+                'slug' => 'devops',
+            ]
+        );
+        Category::create(
+            [
+                'name' => 'Version Control',
+                'slug' => 'version-control',
+            ]
+        );
+        Category::create(
+            [
+                'name' => 'Web Design',
+                'slug' => 'web-design',
+            ]
+        );
+        Category::create(
+            [
+                'name' => 'Algoritm',
+                'slug' => 'algorithm',
+            ]
+        );
+        Category::create(
+            [
+                'name' => 'Web Programming',
+                'slug' => 'web-programming',
+            ]
+        );
+        Category::create(
+            [
+                'name' => 'Mobile Programming',
+                'slug' => 'mobile-programming',
+            ]
+        );
+        User::factory(6)->create();
+        Post::factory(40)->create();
     }
 }

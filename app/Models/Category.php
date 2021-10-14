@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Category extends Model
 {
     use HasFactory;
-    protected $with = ['user', 'post'];
+    // protected $with = ['user', 'post'];
 
     public function post()
     {

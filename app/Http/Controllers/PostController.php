@@ -10,18 +10,22 @@ class PostController extends Controller
 {
     public function index()
     {
+
+        $posts = Post::latest()->filter(request(['search', 'category', 'author']));
         return view('/blog', [
-            'title' => "All Posts",
-            // 'posts' => Post::all() 
-            'posts' => Post::latest()->get()
+            'active' => "Post",
+            'title' => "All Posts ",
+            'posts' => $posts->paginate(7)->withQueryString()
         ]);
     }
-    
+
     public function show($slug)
     {
+        $posts = Post::where('slug', "$slug")->get();
         return view('/post', [
-            'title' => "Single Post",
-            'posts' => Post::where('slug', "$slug")->get()
+            'active' => "Post",
+            'title' => "",
+            'posts' => $posts,
         ]);
     }
 }
